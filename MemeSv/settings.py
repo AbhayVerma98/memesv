@@ -25,7 +25,7 @@ SECRET_KEY = 'd46webnz1sfmba*$idv24t3ivl6j(xsyd)!uf%+5f!mawm*vw8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['memesv.herokuapp.com']
+ALLOWED_HOSTS = ['*','memesv.herokuapp.com']
 
 
 # Application definition
