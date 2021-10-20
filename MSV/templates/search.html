@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <form  method="POST" action="/YFI/search/">
+        {% csrf_token %}
+
+       <button type="button" class="btn btn-primary btn-sm"> <input type="radio"  name="che" value="Video" >
+           <label  >Videos</label><br></button>
+  <button type="button" class="btn btn-primary btn-sm"><input type="radio"  name="che" value="Template">
+      <label >Templates</label></button>
+        <div class="md-form mt-0">
+  <input class="form-control" type="text" name="srh" placeholder="Search" aria-label="Search"><button type="submit" >Search</button>
+</div>
+    </form>
+</div>
+
+
+    {% if temp %}
+<div class="row">
+{% for k in temp %}
+    <div class="col-lg-3 col-md-4 col-12">
+<div class="card text-white bg-secondary mb-3" style="width: 18rem;height:-5%;">
+  <img class="card-img-top" src="{{k.image.url}}" alt="Card image cap">
+  <div class="card-body" style="margin-top:-7.5%;">
+    <h5 class="card-title">{{ k.category}}</h5>
+    <p class="card-text">{{ k.description}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

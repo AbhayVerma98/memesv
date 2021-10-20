@@ -1,0 +1,40 @@
+{% extends 'master.html' %}
+
+{% load static %}
+{% block content %}
+<div align="center" xmlns:color="http://www.w3.org/1999/xhtml">
+<div class="container">
+    {% if messages %}
+<ul class="message">
+	{% for message in messages %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+	{% endfor %}
+</ul>
+    {% endif %}
+</div>
+
+
+<div align="center">
+    <div style="margin-top:5%";>
+<form method="POST" action="" enctype="multipart/form-data" class="was-validated">
+    {% csrf_token%}
+    <div class="b-area" align="center">
+<br>
+    <img src="https://www.w3schools.com/howto/img_avatar.png" height="100px" width="100px" style="border-radius:50%";><br><br>
+    <input type="text" class="form-control form-control-sm" name="username" placeholder="Username" required style="width:50%;border-radius:%"><br>
+    <input type="password" class="form-control form-control-sm" name="password1" placeholder="Password" required style="width:50%;border-radius:%"><br>
+    <button type="button" class="btn btn-danger btn-sm" style="margin-right:13%" ><a href="{% url 'register' %} style="">Sign up</a></button>
+    <button type="button" class="btn btn-warning btn-sm" style=""><a href="{% url 'password_reset' %}">Forget Password</a></button><br><br>
+    <button type="submit" style="blue;width:30%;" class="btn btn-primary btn-sm">Submit</button>
+    <br><br>
+</div>
+</form>
+    <br><br>
+    </div>
+</div>
+
+    </div>
+</div>
+{% endblock %}

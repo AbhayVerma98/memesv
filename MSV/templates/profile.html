@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div align="center">
+<div class="card" style="width: 18rem;" align="center">
+  <img class="card-img-top" src="{{request.user.userprofile.image.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Username:{{user.username}}</h5>
+	<h5 class="card-title">Name:{{user.first_name}} {{user.last_name}}</h5>
+	<h5 class="card-title">Email:{{user.email}}</h5>
+	<h5 class="card-title">Mobile no:{{user.userprofile.mobile_no}}</h5>
+    <p class="card-text">Bio:{{user.userprofile.bio}}</p>
+    <a href="{% url 'updateprofile' %}" class="btn btn-primary">Update Profile</a>
+  </div>
+</div>
+</div>
+{% else %}
+    <a  href="{% url 'login' %}">Log in</a>
+{% endif %}
+{% endblock %}

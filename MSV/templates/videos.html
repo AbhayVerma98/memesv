@@ -1,0 +1,70 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block content %}
+
+<div align="center">
+<a href="{% url 'v_all' %}"><button type="button" class="btn btn-secondary btn-sm" style="width:5%">All</button></a>
+<a href="{% url 'v_popular' %}"><button type="button" class="btn btn-secondary btn-sm">Popular</button></a>
+<a href="{% url 'v_web_serise' %}"><button type="button" class="btn btn-secondary btn-sm">Web Series</button></a>
+<a href="{% url 'v_celebrity' %}"><button type="button" class="btn btn-secondary btn-sm">Celebrity</button></a>
+<a href="{% url 'v_abusive' %}"><button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('Are you 18+ ?')">Abusive</button></a>
+<a href="{% url 'v_funny' %}"><button type="button" class="btn btn-secondary btn-sm">Funny</button></a>
+<a href="{% url 'v_random' %}"><button type="button" class="btn btn-secondary btn-sm">Random</button></a>
+<a href="{% url 'v_new' %}"><button type="button" class="btn btn-secondary btn-sm">  New  </button></a>
+</div>
+
+
+<br>
+
+    {% if sr %}
+<div class="row">
+{% for k in sr %}
+    <div class="col-lg-3 col-md-4 col-12">
+<div class="card text-white bg-secondary mb-3" style="width: 18rem;height:-%;">
+    <div style="margin-top:20%;">
+        <a href="{{k.video.url}}">
+<video height="300px" width="280px" style="margin-top:-23%;>
+    <source class="card-img-top" src="{{k.video.url}}" alt="Card image cap">
+</video>
+    </a>
+    </div>
+  <div class="card-body" style="margin-top:-30%;">
+    <h5 class="card-title">{{ k.category}}</h5>
+    <p class="card-text">{{ k.description}}</p>
+    <a href="{{k.video.url}}" class="btn btn-primary" DOWNLOAD>Download</a>
+  </div>
+</div>
+    </div>
+
+
+
+{% endfor %}
+</div>
+{% endif %}
+</div>
+{% if temp %}
+<div style="margin-top:5%;">
+<div class="row">
+{% for k in temp %}
+    <div class="col-lg-3 col-md-4 col-12">
+<div class="card text-white bg-secondary mb-3" style="width: 18rem;height:-%;">
+    <div style="margin-top:20%;">
+        <a href="{{k.video.url}}">
+<video height="300px" width="280px" style="margin-top:-23%;>
+    <source class="card-img-top" src="{{k.video.url}}" alt="Card image cap">
+</video>
+    </a>
+    </div>
+  <div class="card-body" style="margin-top:-30%;">
+    <h5 class="card-title">{{ k.category}}</h5>
+    <p class="card-text">{{ k.description}}</p>
+    <a href="{{k.video.url}}" class="btn btn-primary" DOWNLOAD>Download</a>
+  </div>
+</div>
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+{% endblock %}

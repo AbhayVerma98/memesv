@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+
+{% load static %}
+{% block content %}
+
+<div >
+<form method="POST" action="" enctype="multipart/form-data" class="was-validated">
+    {% csrf_token%}
+
+    <div  style="margin-right:30%;margin-left:25%;" >
+        {{ form.as_p}}
+    </div>
+<button type="submit" style="margin-left:40%;" class="btn btn-outline-success" >Submit</button>
+</form>
+    </div>
+{% endblock %}

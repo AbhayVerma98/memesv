@@ -1,0 +1,13 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<h1>welvome {{request.user.username}}</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ u_form.as_p }}
+    {{ P_form.as_p }}
+
+    <button type="submit">update</button>
+</form>
+{% endblock content %}
