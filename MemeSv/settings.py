@@ -122,14 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+MEDIA_ROOT = BASE_DIR /'media'
+STATIC_ROOT = BASE_DIR /'static'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'av542323@gmail.com'
-EMAIL_HOST_PASSWORD = 'abhay9896'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'noreply@example.com'
