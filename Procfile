@@ -1,1 +1,1 @@
-web: gunicorn MemeSv.wsgi --log-file -
+web: gunicorn MemeSv.wsgi 
