@@ -22,7 +22,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('YFI/', include('MSV.controls')),
+    path('', include('MSV.controls')),
     # Change Password
 
 ]
